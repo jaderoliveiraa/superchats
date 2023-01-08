@@ -34,7 +34,7 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
     (await CheckSettingsHelper("userCreation")) === "disabled"
   ) {
     throw new AppError("ERR_USER_CREATION_DISABLED", 403);
-  } else if (req.url !== "/signup" && req.user.profile !== "admin") {
+  } else if (req.url !== "/signup" && req.user.profile !== "user") {
     throw new AppError("ERR_NO_PERMISSION", 403);
   }
 
